@@ -7,10 +7,10 @@ app = FastAPI()
 
 @app.get('/blog')
 def index(limit=10, published: bool = True, sort: Optional[str] = None):
-    if published == True:
-        return {"data": f" {limit} published blog from db"}
-    else:
+    if True != published:
         return {"data": f" {limit} blog from db"}
+    else:
+        return {"data": f" {limit} published blog from db"}
 
 
 @app.get("/blog/unpublished")
